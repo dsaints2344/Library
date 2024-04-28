@@ -19,13 +19,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Persistence\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{53077860-A2E4-4E1D-AF17-19CDE1407B08}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DTOs", "DTOs", "{6DF958BD-5BD6-4CBA-A2DC-1FCB968D7170}"
-	ProjectSection(SolutionItems) = preProject
-		BookModel.cs = BookModel.cs
-		CategoryModel.cs = CategoryModel.cs
-		LoanModel.cs = LoanModel.cs
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,7 +50,6 @@ Global
 		{A5E47CAC-F126-440E-88C9-21F8E0C52F5B} = {8AC97620-13AA-42DC-B3BD-9B50F55EDE70}
 		{7567A97A-FF3E-4088-9D8A-CE0709ED0D18} = {BCD6DBDA-9A39-46D6-9C77-13A73D3DAFDB}
 		{53077860-A2E4-4E1D-AF17-19CDE1407B08} = {D130DB71-B837-43D4-BBF2-66853597E620}
-		{6DF958BD-5BD6-4CBA-A2DC-1FCB968D7170} = {D130DB71-B837-43D4-BBF2-66853597E620}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C144D1BE-C16F-41BF-BD76-B6693B6465EB}
