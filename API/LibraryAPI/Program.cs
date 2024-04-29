@@ -1,6 +1,7 @@
 using Application.Category;
 using Application.Core;
 using Application.Repository;
+using Application.Services;
 using LibraryAPI;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
@@ -20,6 +21,7 @@ builder.Services.AddAutoMapper(cfg =>
 // builder.Services.AddScoped<ICategory, CategoryService>();
 builder.Services.AddControllers();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IBookService, BookService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
