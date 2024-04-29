@@ -2,6 +2,6 @@
 {
     public interface IInventoryService
     {
-        Task<int> UpdateInventory(int bookId, int newAmount);
+        Task<int> UpsertInventory(int bookId, int newAmount);
     }
 }

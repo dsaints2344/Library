@@ -14,7 +14,7 @@ namespace Application.Services
             _dataContext = context;
         }
 
-        public async Task<int> UpdateInventory(int bookId, int newAmount)
+        public async Task<int> UpsertInventory(int bookId, int newAmount)
         {
             var bookToUpdate = await _dataContext.Books.Where(b => b.Id == bookId)
                 .FirstOrDefaultAsync();
