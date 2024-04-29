@@ -26,12 +26,13 @@ namespace Application.Services
         {
             var newBook = _mapper.Map<Domain.Book>(book);
 
-            var existingBook = await _dataContext.Books.Where(b => b.Title.ToLower() == book.Title.ToLower())
+            var existingBook = await _dataContext.Books.Where(b => b.Title.ToLower() == book.Title.ToLower() && 
+                b.ISBN.ToLower() == book.ISBN.ToLower())
                 .FirstOrDefaultAsync();
 
             if (existingBook != null)
             {
-                throw new DbUpdateException($"Book with title {book.Title} already exists");
+                throw new DbUpdateException($"Book with title {book.Title} already exists, please update inventory");
             }
 
             await _dataContext.Books.AddAsync(newBook);
