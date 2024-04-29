@@ -1,6 +1,7 @@
 ﻿using Application.Category;
 using Application.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -26,27 +27,33 @@ namespace LibraryAPI.Controllers
 
         // GET api/<CategoriesController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<IActionResult> GetCategory(int id)
         {
-            return "value";
+            try
+            {
+                var category = await _categoryService.GetCategory(id);
+                return Ok(category); // Return the category if found (200 OK)
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message); // Return 404 Not Found with message
+            }
         }
 
         // POST api/<CategoriesController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> PostCategory([FromBody] CategoryModel category)
         {
-        }
+            try 
+            {
+                var createdCategory = await _categoryService.CreateCategory(category);
+                return Ok(createdCategory);
+            }
+            catch (DbUpdateException ex) 
+            {
+                return BadRequest(ex.Message);
+            }
 
-        // PUT api/<CategoriesController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<CategoriesController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }
