@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.Repository
 {
-    internal interface IBookService
+    public interface IBookService
     {
         public Task<List<BookModel>> GetAllBooks();
         public Task<BookModel> GetBook(int id);
