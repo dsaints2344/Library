@@ -11,6 +11,6 @@
         public string? Description { get; set; }
         public string? ImgUrl { get; set; }
 
-        public required Category Category { get; set; } // Enforces required category
+        public Category? Category { get; set; } // Enforces required category
     }
 }
