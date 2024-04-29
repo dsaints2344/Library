@@ -12,6 +12,9 @@ namespace Application.Core
         public MappingProfiles() {
             CreateMap<Domain.Category, CategoryModel>();
             CreateMap<CategoryModel, Domain.Category>();
+
+            CreateMap<Domain.Book, BookModel>();
+            CreateMap<BookModel,Domain.Book>();
         }
     }
 }
