@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Application.Category
 {
-    public class CategoryService: ICategory
+    public class CategoryService: ICategoryService
     {
         private readonly DataContext _dbContext;
         private readonly IMapper _mapper;

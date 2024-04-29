@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.Repository
 {
-    public interface ICategory
+    public interface ICategoryService
     {
         public Task<CategoryModel> CreateCategory(CategoryModel category);
         public Task<CategoryModel> GetCategory(int id);
