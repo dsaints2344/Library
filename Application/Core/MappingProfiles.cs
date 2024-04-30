@@ -11,11 +11,15 @@ namespace Application.Core
     {
         public MappingProfiles() {
             CreateMap<Domain.Category, CategoryModel>();
-            CreateMap<CategoryModel, Domain.Category>();
+            CreateMap<CategoryModel, Domain.Category>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore());
 
             CreateMap<Domain.Book, BookModel>();
-            CreateMap<BookModel,Domain.Book>();
-            CreateMap<LoanModel, Domain.Loan>();
+            CreateMap<BookModel,Domain.Book>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore());
+
+            CreateMap<LoanModel, Domain.Loan>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore()); ;
         }
     }
 }
