@@ -2,13 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
-import { CssBaseline, GeistProvider } from '@geist-ui/core'
+import { ChakraProvider } from '@chakra-ui/react'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <GeistProvider>
-      <CssBaseline/>
+    <ChakraProvider>
       <App />
-    </GeistProvider>
+    </ChakraProvider>
   </React.StrictMode>,
 )
