@@ -9,5 +9,6 @@ namespace Application.Repository
     public interface IBookLoanService
     {
         Task<int> UpsertLoan(LoanModel loanModel);
+        Task<int> ReturnLoan(LoanModel loanModel);
     }
 }
