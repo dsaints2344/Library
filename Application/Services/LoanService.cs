@@ -38,8 +38,8 @@ namespace Application.Services
                 }).FirstOrDefaultAsync();
 
             var existingLoan = await _dataContext.Loans
+                .Include(l => l.Inventory)
                 .Where(l => l.BorrowerId == loanModel.BorrowerId && l.BookId == loanModel.BookId)
-                .Include (l => l.Inventory)
                 .FirstOrDefaultAsync();
 
             
@@ -63,8 +63,11 @@ namespace Application.Services
             {
                 var newLoan = _mapper.Map<Loan>(loanModel);
                 newLoan.AmountBorrowed = loanModel.AmountToBorrowOrReturn;
+                newLoan.InventoryId = bookToBorrow.Inventory.Id;
 
                 bookToBorrow.Inventory.AvailableCopies = bookToBorrow.Inventory.AvailableCopies - loanModel.AmountToBorrowOrReturn;
+                newLoan.Book = bookToBorrow;
+
                 await _dataContext.Loans.AddAsync(newLoan);
             }
 
