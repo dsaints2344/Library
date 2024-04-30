@@ -64,9 +64,9 @@ namespace Application.Services
                 var newLoan = _mapper.Map<Loan>(loanModel);
                 newLoan.AmountBorrowed = loanModel.AmountToBorrowOrReturn;
                 newLoan.InventoryId = bookToBorrow.Inventory.Id;
-
                 bookToBorrow.Inventory.AvailableCopies = bookToBorrow.Inventory.AvailableCopies - loanModel.AmountToBorrowOrReturn;
-                newLoan.Book = bookToBorrow;
+               
+
 
                 await _dataContext.Loans.AddAsync(newLoan);
             }

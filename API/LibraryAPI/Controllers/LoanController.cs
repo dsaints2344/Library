@@ -29,16 +29,17 @@ namespace LibraryAPI.Controllers
             return BadRequest();
         }
 
-        // PUT api/<LoanController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [Route("return-loan")]
+        [HttpPost]
+        public async Task<IActionResult> ReturnLoan([FromBody] LoanModel loanModel)
         {
-        }
+            var loanUpdate = await _bookLoanService.ReturnLoan(loanModel);
 
-        // DELETE api/<LoanController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            if (loanUpdate > 0)
+            {
+                return Ok();
+            }
+            return BadRequest();
         }
     }
 }
