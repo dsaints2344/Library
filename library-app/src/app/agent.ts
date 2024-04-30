@@ -1,4 +1,6 @@
 import axios, { AxiosResponse } from "axios";
+import { BookModel} from "./models/book.model";
+import { LoanModel } from "./models/loan.model";
 
 const responseBody = <T>(response: AxiosResponse<T>) => response.data; // * Returns data from the request
 
@@ -15,14 +17,21 @@ const requests = {
 // Books
 
 const Books = {
-    list: (params: URLSearchParams) => axios.get<any>('/Book', {})
+    list: () => axios.get<BookModel[]>('/Book', {})
         .then(responseBody),
-    create: (book: any) => requests.post<void>("/Book", book)
+    create: (book: BookModel) => requests.post<void>("/Book", book),
+}
+
+// Loan
+const Loan = {
+    create: (loan: LoanModel) => axios.post<void>('/Loan', loan),
+    reurnLoan: (loan: LoanModel) => axios.post<void>('/return-loan', loan)
 }
 
 
 const agent ={
-    Books
+    Books,
+    Loan
 };
 
 export default agent;
