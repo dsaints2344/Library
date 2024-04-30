@@ -12,5 +12,6 @@
         public string? ImgUrl { get; set; }
 
         public Category? Category { get; set; } // Enforces required category
+        public Inventory? Inventory { get; set; }
     }
 }

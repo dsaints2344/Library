@@ -4,9 +4,10 @@
     {
         public int Id { get; set; }
         public required int BookId { get; set; }
-        public required string BorrowerName { get; set; }
         public DateTime LoanDate { get; set; }
         public DateTime? ReturnDate { get; set; }
+        public int BorrowerId { get; set; }
+        public int AmountBorrowed { get; set; }
 
 
         // navigation properties

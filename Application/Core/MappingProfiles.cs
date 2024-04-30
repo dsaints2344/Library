@@ -15,6 +15,7 @@ namespace Application.Core
 
             CreateMap<Domain.Book, BookModel>();
             CreateMap<BookModel,Domain.Book>();
+            CreateMap<LoanModel, Domain.Loan>();
         }
     }
 }
