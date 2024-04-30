@@ -1,4 +1,4 @@
-export class Book {
+export class BookModel {
     title: string = "";
     author: string = "";
     publishedDate: Date | null = new Date();

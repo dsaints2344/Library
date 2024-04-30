@@ -1,4 +1,4 @@
-export class Loan {
+export class LoanModel {
     loanDate: Date = new Date();
     returnDate: Date | null = null;
     borrowerId: number | null = null;
